@@ -8,12 +8,12 @@ import { Product } from "src/types";
 export function* doInit(): IterableIterator<any> {
   yield takeEvery(`@@home/DATA_INIT`, function*(action: any) {
     try {
-      const products: Product[] = yield call(Products.getProducts);
-
+      const data = yield call(Products.getProducts);
+      console.log(JSON.stringify(data));
       yield put({
         type: `@@home/DATA_LOADED`,
         payload: {
-          data: products
+          data: data.data
         }
       });
     } catch (error) {

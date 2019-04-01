@@ -17,17 +17,6 @@ module.exports = merge(common, {
       "Access-Control-Allow-Origin": "*"
     },
 
-    proxy: {
-      "/data/books": {
-        target: "http://localhost:3000",
-        secure: false
-      },
-      "/data/authors": {
-        target: "http://localhost:3000",
-        secure: false
-      }
-    },
-
     contentBase: path.resolve(__dirname, "../dist"),
     historyApiFallback: true,
     host: "localhost",
@@ -41,7 +30,8 @@ module.exports = merge(common, {
   plugins: [
     new webpack.DefinePlugin({
       "process.env": {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        API_URL: JSON.stringify("http://195.26.92.83:3000")
       }
     }),
     new webpack.HotModuleReplacementPlugin(),

@@ -12,7 +12,6 @@ export function errorReducer(state: any = initialState, action: any) {
     }
     case `@@ERROR_SHOW`: {
       const { error } = action.payload;
-      alert(JSON.stringify(state));
       return error;
     }
     case `@@ERROR_HIDE`: {

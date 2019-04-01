@@ -16,7 +16,7 @@ export function homeReducer(state: HomeState = initialState, action: any) {
     case `@@home/DATA_LOADED`: {
       return {
         ...state,
-        data: action.payload.data
+        products: action.payload.data.data
       };
     }
     case `@@ERROR_OCCURED`: {

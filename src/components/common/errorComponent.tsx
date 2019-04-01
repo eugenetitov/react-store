@@ -14,9 +14,9 @@ const style = {
   color: "red"
 };
 
-export class ErrorComponent extends React.Component {
+export class ErrorComponent extends React.Component<ErrorProps> {
   render() {
-    return <h4 style={style}>{JSON.stringify(this.props)}</h4>;
+    return <h4 style={style}>{this.props.error.error}</h4>;
   }
 }
 
@@ -28,4 +28,4 @@ const mapStateToProps = (state: RootState) => ({
 //   actions: bindActionCreators(onErrorOccured, dispatch)
 // });
 
-export default connect(mapStateToProps)(ErrorComponent);
+export const Error = connect(mapStateToProps)(ErrorComponent);
